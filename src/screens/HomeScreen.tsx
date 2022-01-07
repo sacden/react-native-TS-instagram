@@ -10,6 +10,7 @@ import {Colors} from '../styles/Colors';
 import {TextHelper} from '../helpers/TextHelper';
 import {PostCard} from '../components/PostCard';
 import {HistoryData} from '../store/HistoryData';
+import {HistoryHelper} from '../helpers/HistoryHelper';
 
 export const HomeScreen = () => {
   return (
@@ -34,7 +35,7 @@ export const HomeScreen = () => {
           style={{marginTop: 12}}
           horizontal={true}
           showsHorizontalScrollIndicator={false}>
-          {HistoryData.map((item, index) => (
+          {HistoryHelper.getHistory(HistoryData).map((item, index) => (
             <View
               key={item.id}
               style={[
