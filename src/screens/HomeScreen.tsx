@@ -8,48 +8,55 @@ import {StyleSheet} from 'react-native';
 import {AgEnum, Text} from '../components/Text';
 import {Colors} from '../styles/Colors';
 import {TextHelper} from '../helpers/TextHelper';
+import {PostCard} from '../components/PostCard';
 
 export const HomeScreen = () => {
   return (
     <>
-      <View style={styles.topContainer}>
-        <LogoIcon />
+      <ScrollView>
+        <View style={styles.topContainer}>
+          <LogoIcon />
 
-        <View style={styles.topContainerIcons}>
-          <TouchableOpacity style={{paddingRight: 20}}>
-            <PostIcon />
-          </TouchableOpacity>
-          <TouchableOpacity style={{paddingRight: 20}}>
-            <LikeIcon />
-          </TouchableOpacity>
-          <TouchableOpacity style={{paddingRight: 20}}>
-            <MessengerIcon />
-          </TouchableOpacity>
-        </View>
-      </View>
-      <ScrollView
-        style={{marginTop: 12}}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}>
-        {[...Array(10)].map((_, index) => (
-          <View
-            key={index}
-            style={[
-              styles.historyIconContainer,
-              index === 0 && {marginLeft: 6},
-            ]}>
-            <TouchableOpacity style={styles.historyIcon}>
-              <Image
-                style={styles.history}
-                source={{
-                  uri: 'https://scontent-prg1-1.xx.fbcdn.net/v/t1.6435-9/73166314_2283767265066716_3853575590049218560_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-Vbhbkn3WW0AX8ZZkuB&tn=4LIf-RHnuk0EEmJX&_nc_ht=scontent-prg1-1.xx&oh=00_AT9eua52PowdoqoRFdSG4ZMztlWMOCbvO6qFUPcgAH9CMQ&oe=61FC6469',
-                }}
-              />
+          <View style={styles.topContainerIcons}>
+            <TouchableOpacity style={{paddingRight: 20}}>
+              <PostIcon />
             </TouchableOpacity>
-            <Text Ag={AgEnum.SUBTITLE} align={'center'}>
-              {TextHelper.getUserHistoryName('Павел Котов')}
-            </Text>
+            <TouchableOpacity style={{paddingRight: 20}}>
+              <LikeIcon />
+            </TouchableOpacity>
+            <TouchableOpacity style={{paddingRight: 20}}>
+              <MessengerIcon />
+            </TouchableOpacity>
           </View>
+        </View>
+        <ScrollView
+          style={{marginTop: 12}}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}>
+          {[...Array(10)].map((_, index) => (
+            <View
+              key={index}
+              style={[
+                styles.historyIconContainer,
+                index === 0 && {marginLeft: 6},
+              ]}>
+              <TouchableOpacity style={styles.historyIcon}>
+                <Image
+                  style={styles.history}
+                  source={{
+                    uri: 'https://scontent-prg1-1.xx.fbcdn.net/v/t1.6435-9/73166314_2283767265066716_3853575590049218560_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-Vbhbkn3WW0AX8ZZkuB&tn=4LIf-RHnuk0EEmJX&_nc_ht=scontent-prg1-1.xx&oh=00_AT9eua52PowdoqoRFdSG4ZMztlWMOCbvO6qFUPcgAH9CMQ&oe=61FC6469',
+                  }}
+                />
+              </TouchableOpacity>
+              <Text Ag={AgEnum.SUBTITLE} align={'center'}>
+                {TextHelper.getUserHistoryName('Pavel Kotov')}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
+
+        {[...Array(10)].map((_, index) => (
+          <PostCard key={index} />
         ))}
       </ScrollView>
     </>

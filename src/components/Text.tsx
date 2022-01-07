@@ -5,6 +5,7 @@ import {Colors} from '../styles/Colors';
 export enum AgEnum {
   H1 = 'h1',
   SUBTITLE = 'SUBTITLE',
+  BODYSTRONG = 'BODYSTRONG',
 }
 
 interface IText extends TextProps {
@@ -42,5 +43,10 @@ const styles = StyleSheet.create({
   [AgEnum.SUBTITLE]: {
     fontSize: 12,
     lineHeight: 22,
+  },
+  [AgEnum.BODYSTRONG]: {
+    fontSize: 13,
+    lineHeight: 22,
+    fontWeight: 'bold',
   },
 });
