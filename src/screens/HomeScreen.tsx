@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {View, TouchableOpacity, ScrollView, Image, Text} from 'react-native';
+import {View, TouchableOpacity, ScrollView, Image} from 'react-native';
 import {PostIcon} from '../assets/icons/PostIcon';
 import {LogoIcon} from '../assets/icons/LogoIcon';
 import {LikeIcon} from '../assets/icons/LikeIcon';
 import {MessengerIcon} from '../assets/icons/MessengerIcon';
 import {StyleSheet} from 'react-native';
-import {AgEnum} from '../components/Text';
+import {AgEnum, Text} from '../components/Text';
+import {Colors} from '../styles/Colors';
 
 export const HomeScreen = () => {
   return (
@@ -30,7 +31,7 @@ export const HomeScreen = () => {
         horizontal={true}
         showsHorizontalScrollIndicator={false}>
         {[...Array(10)].map((_, index) => (
-          <View key={index}>
+          <View key={index} style={styles.historyItem}>
             <TouchableOpacity
               style={[
                 styles.historyIconContainer,
@@ -44,7 +45,7 @@ export const HomeScreen = () => {
               />
             </TouchableOpacity>
             <Text Ag={AgEnum.SUBTITLE} align={'center'}>
-              Павел Титов
+              Павел
             </Text>
           </View>
         ))}
@@ -74,9 +75,11 @@ const styles = StyleSheet.create({
     borderColor: 'white',
   },
   historyIconContainer: {
-    marginRight: 16,
     borderRadius: 60,
     borderWidth: 3,
     borderColor: 'red',
+  },
+  historyItem: {
+    marginRight: 16,
   },
 });

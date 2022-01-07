@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, Text as RNText, TextProps} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from '../styles/Colors';
 
 export enum AgEnum {
   H1 = 'h1',
@@ -23,7 +23,7 @@ export const Text = (props: IText) => {
       style={[
         styles[Ag],
         {
-          color: color || 'black',
+          color: color || Colors.black,
           textAlign: align || 'auto',
         },
         props.style,
