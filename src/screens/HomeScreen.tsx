@@ -11,6 +11,7 @@ import {TextHelper} from '../helpers/TextHelper';
 import {PostCard} from '../components/PostCard';
 import {HistoryData} from '../store/HistoryData';
 import {HistoryHelper} from '../helpers/HistoryHelper';
+import {IHistory} from '../types/HistoryTypes';
 
 export const HomeScreen = () => {
   return (
@@ -35,32 +36,34 @@ export const HomeScreen = () => {
           style={{marginTop: 12}}
           horizontal={true}
           showsHorizontalScrollIndicator={false}>
-          {HistoryHelper.getHistory(HistoryData).map((item, index) => (
-            <View
-              key={item.id}
-              style={[
-                styles.historyIconContainer,
-                index === 0 && {marginLeft: 6},
-              ]}>
-              <TouchableOpacity
+          {HistoryHelper.getHistory(HistoryData).map(
+            (item: IHistory, index) => (
+              <View
+                key={item.id}
                 style={[
-                  styles.historyIcon,
-                  item.active
-                    ? styles.historyIconActive
-                    : styles.historyIconNotActive,
+                  styles.historyIconContainer,
+                  index === 0 && {marginLeft: 6},
                 ]}>
-                <Image
-                  style={styles.history}
-                  source={{
-                    uri: item.avatar,
-                  }}
-                />
-              </TouchableOpacity>
-              <Text Ag={AgEnum.SUBTITLE} align={'center'}>
-                {TextHelper.getUserHistoryName(item.name)}
-              </Text>
-            </View>
-          ))}
+                <TouchableOpacity
+                  style={[
+                    styles.historyIcon,
+                    item.active
+                      ? styles.historyIconActive
+                      : styles.historyIconNotActive,
+                  ]}>
+                  <Image
+                    style={styles.history}
+                    source={{
+                      uri: item.avatar,
+                    }}
+                  />
+                </TouchableOpacity>
+                <Text Ag={AgEnum.SUBTITLE} align={'center'}>
+                  {TextHelper.getUserHistoryName(item.name)}
+                </Text>
+              </View>
+            ),
+          )}
         </ScrollView>
 
         {[...Array(10)].map((_, index) => (
