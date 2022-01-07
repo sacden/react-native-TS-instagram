@@ -7,6 +7,7 @@ import {MessengerIcon} from '../assets/icons/MessengerIcon';
 import {StyleSheet} from 'react-native';
 import {AgEnum, Text} from '../components/Text';
 import {Colors} from '../styles/Colors';
+import {TextHelper} from '../helpers/TextHelper';
 
 export const HomeScreen = () => {
   return (
@@ -31,12 +32,13 @@ export const HomeScreen = () => {
         horizontal={true}
         showsHorizontalScrollIndicator={false}>
         {[...Array(10)].map((_, index) => (
-          <View key={index} style={styles.historyItem}>
-            <TouchableOpacity
-              style={[
-                styles.historyIconContainer,
-                index === 0 && {marginLeft: 6},
-              ]}>
+          <View
+            key={index}
+            style={[
+              styles.historyIconContainer,
+              index === 0 && {marginLeft: 6},
+            ]}>
+            <TouchableOpacity style={styles.historyIcon}>
               <Image
                 style={styles.history}
                 source={{
@@ -45,7 +47,7 @@ export const HomeScreen = () => {
               />
             </TouchableOpacity>
             <Text Ag={AgEnum.SUBTITLE} align={'center'}>
-              Павел
+              {TextHelper.getUserHistoryName('Павел Котов')}
             </Text>
           </View>
         ))}
@@ -74,12 +76,14 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: 'white',
   },
-  historyIconContainer: {
-    borderRadius: 60,
+  historyIcon: {
+    width: 66,
+    height: 66,
+    borderRadius: 66,
     borderWidth: 3,
     borderColor: 'red',
   },
-  historyItem: {
+  historyIconContainer: {
     marginRight: 16,
   },
 });
