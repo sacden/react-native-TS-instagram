@@ -9,6 +9,7 @@ import {AgEnum, Text} from '../components/Text';
 import {Colors} from '../styles/Colors';
 import {TextHelper} from '../helpers/TextHelper';
 import {PostCard} from '../components/PostCard';
+import {HistoryData} from '../store/HistoryData';
 
 export const HomeScreen = () => {
   return (
@@ -33,9 +34,9 @@ export const HomeScreen = () => {
           style={{marginTop: 12}}
           horizontal={true}
           showsHorizontalScrollIndicator={false}>
-          {[...Array(10)].map((_, index) => (
+          {HistoryData.map((item, index) => (
             <View
-              key={index}
+              key={item.id}
               style={[
                 styles.historyIconContainer,
                 index === 0 && {marginLeft: 6},
@@ -44,12 +45,12 @@ export const HomeScreen = () => {
                 <Image
                   style={styles.history}
                   source={{
-                    uri: 'https://scontent-prg1-1.xx.fbcdn.net/v/t1.6435-9/73166314_2283767265066716_3853575590049218560_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-Vbhbkn3WW0AX8ZZkuB&tn=4LIf-RHnuk0EEmJX&_nc_ht=scontent-prg1-1.xx&oh=00_AT9eua52PowdoqoRFdSG4ZMztlWMOCbvO6qFUPcgAH9CMQ&oe=61FC6469',
+                    uri: item.avatar,
                   }}
                 />
               </TouchableOpacity>
               <Text Ag={AgEnum.SUBTITLE} align={'center'}>
-                {TextHelper.getUserHistoryName('Pavel Kotov')}
+                {TextHelper.getUserHistoryName(item.name)}
               </Text>
             </View>
           ))}
