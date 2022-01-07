@@ -41,7 +41,13 @@ export const HomeScreen = () => {
                 styles.historyIconContainer,
                 index === 0 && {marginLeft: 6},
               ]}>
-              <TouchableOpacity style={styles.historyIcon}>
+              <TouchableOpacity
+                style={[
+                  styles.historyIcon,
+                  item.active
+                    ? styles.historyIconActive
+                    : styles.historyIconNotActive,
+                ]}>
                 <Image
                   style={styles.history}
                   source={{
@@ -89,9 +95,17 @@ const styles = StyleSheet.create({
     height: 66,
     borderRadius: 66,
     borderWidth: 3,
-    borderColor: 'red',
+    borderColor: Colors.red,
   },
   historyIconContainer: {
     marginRight: 16,
+  },
+  historyIconActive: {
+    borderWidth: 3,
+    borderColor: Colors.red,
+  },
+  historyIconNotActive: {
+    borderWidth: 3,
+    borderColor: Colors.gray,
   },
 });
