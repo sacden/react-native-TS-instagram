@@ -1,0 +1,46 @@
+import * as React from 'react';
+import {StyleSheet, Text as RNText, TextProps} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+
+export enum AgEnum {
+  H1 = 'h1',
+  SUBTITLE = 'SUBTITLE',
+}
+
+interface IText extends TextProps {
+  Ag: AgEnum;
+  children?: string | React.ReactNode[];
+  align?: 'auto' | 'left' | 'right' | 'center' | 'justify';
+  color?: string;
+}
+
+export const Text = (props: IText) => {
+  const {Ag, color, align} = props;
+
+  return (
+    <RNText
+      {...props}
+      style={[
+        styles[Ag],
+        {
+          color: color || 'black',
+          textAlign: align || 'auto',
+        },
+        props.style,
+      ]}
+    />
+  );
+};
+
+const styles = StyleSheet.create({
+  [AgEnum.H1]: {
+    fontSize: 28,
+    lineHeight: 34,
+    letterSpacing: 0.36,
+    fontWeight: '700',
+  },
+  [AgEnum.SUBTITLE]: {
+    fontSize: 12,
+    lineHeight: 22,
+  },
+});
