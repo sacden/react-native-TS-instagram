@@ -123,9 +123,11 @@ const styles = StyleSheet.create({
   bottomLeft: {
     width: DataHelper.getWidth() * 0.66,
     height: DataHelper.getWidth() * 0.66,
+    marginTop: DataHelper.getWidth() * 0.003,
+    marginRight: DataHelper.getWidth() * 0.006,
   },
   bigImage: {
-    width: DataHelper.getWidth() * 0.66,
+    width: DataHelper.getWidth() * 0.666,
     height: DataHelper.getWidth() * 0.66,
     marginTop: DataHelper.getWidth() * 0.003,
     marginRight: DataHelper.getWidth() * 0.003,
