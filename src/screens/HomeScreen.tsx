@@ -12,6 +12,7 @@ import {PostCard} from '../components/PostCard';
 import {HistoryData} from '../store/HistoryData';
 import {HistoryHelper} from '../helpers/HistoryHelper';
 import {IHistory} from '../types/HistoryTypes';
+import {PostData} from '../store/PostData';
 
 export const HomeScreen = () => {
   return (
@@ -51,12 +52,7 @@ export const HomeScreen = () => {
                       ? styles.historyIconActive
                       : styles.historyIconNotActive,
                   ]}>
-                  <Image
-                    style={styles.history}
-                    source={{
-                      uri: item.avatar,
-                    }}
-                  />
+                  <Image style={styles.history} source={item.avatar} />
                 </TouchableOpacity>
                 <Text Ag={AgEnum.SUBTITLE} align={'center'}>
                   {TextHelper.getUserHistoryName(item.name)}
@@ -65,9 +61,8 @@ export const HomeScreen = () => {
             ),
           )}
         </ScrollView>
-
-        {[...Array(10)].map((_, index) => (
-          <PostCard key={index} />
+        {PostData.map(item => (
+          <PostCard key={item.id} item={item} />
         ))}
       </ScrollView>
     </>
