@@ -7,8 +7,8 @@ export const HistoryData = [
   },
   {
     id: 2,
-    name: 'Chum',
-    avatar: require('./../assets/avatars/6.jpg'),
+    name: 'Sacden',
+    avatar: require('./../assets/avatars/2.jpeg'),
     active: false,
   },
   {

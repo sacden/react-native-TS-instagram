@@ -4,4 +4,5 @@ export enum Screens {
   SEARCH = 'SEARCH',
   BOOKMARK = 'BOOKMARK',
   POST = 'POST',
+  USER = 'USER',
 }

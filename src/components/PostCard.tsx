@@ -1,18 +1,36 @@
 import * as React from 'react';
-import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
 import {BookmarkIcon} from '../assets/icons/BookmarkIcon';
 import {CommentIcon} from '../assets/icons/ComentIcon';
 import {LikeIcon} from '../assets/icons/LikeIcon';
 import {PostIcon} from '../assets/icons/PostIcon';
 import {ShareIcon} from '../assets/icons/ShareIcon';
 import {AgEnum, Text} from './Text';
+import {Screens} from '../navigation/screens/Screens';
+import {useNavigation} from '@react-navigation/native';
 
 export const PostCard = ({item}: any) => {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.topContainer}>
         <View style={styles.flexRow}>
-          <Image style={styles.avatar} source={item.avatar} />
+          <Pressable
+            onPress={() =>
+              navigation.navigate(Screens.USER, {
+                itemId: item.id,
+                item: item,
+              })
+            }>
+            <Image style={styles.avatar} source={item.avatar} />
+          </Pressable>
+
           <Text Ag={AgEnum.SUBTITLE} style={{marginLeft: 9}}>
             {item.name}
           </Text>

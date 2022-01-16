@@ -10,8 +10,8 @@ export const PostData = [
   },
   {
     id: 2,
-    name: 'Chum',
-    avatar: require('./../assets/avatars/2.jpg'),
+    name: 'Sacden',
+    avatar: require('./../assets/avatars/2.jpeg'),
     likes: 34,
     comments: 5,
     photo: require('./../assets/images/2.jpeg'),

@@ -5,6 +5,7 @@ import {HomeScreen} from '../../screens/HomeScreen';
 import {Screens} from '../screens/Screens';
 import {BottomTab} from '../tabs/BottomTab';
 import {PostScreen} from '../../screens/PostScreen';
+import {UserScreen} from '../../screens/UserScreen';
 
 export const AppStack = () => {
   const Stack = createNativeStackNavigator();
@@ -12,6 +13,7 @@ export const AppStack = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name={Screens.HOME} component={BottomTab} />
       <Stack.Screen name={Screens.POST} component={PostScreen} />
+      <Stack.Screen name={Screens.USER} component={UserScreen} />
     </Stack.Navigator>
   );
 };

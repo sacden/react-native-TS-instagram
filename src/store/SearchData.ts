@@ -45,7 +45,7 @@ export const SearchData = [
         comments: 3,
         photo: require('./../assets/images/4.jpeg'),
         keyword: 'city',
-        text: 'lorem ipsum bla bla bla',
+        text: 'Illusion is the first of all pleasures',
       },
     ],
     [
