@@ -12,8 +12,26 @@ export const AppStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name={Screens.HOME} component={BottomTab} />
-      <Stack.Screen name={Screens.POST} component={PostScreen} />
-      <Stack.Screen name={Screens.USER} component={UserScreen} />
+      <Stack.Screen
+        name={Screens.POST}
+        component={PostScreen}
+        options={{
+          headerTitle: '',
+          headerShown: true,
+          headerBackTitle: '',
+          headerTintColor: 'black',
+        }}
+      />
+      <Stack.Screen
+        name={Screens.USER}
+        component={UserScreen}
+        options={{
+          headerTitle: '',
+          headerShown: true,
+          headerBackTitle: '',
+          headerTintColor: 'black',
+        }}
+      />
     </Stack.Navigator>
   );
 };

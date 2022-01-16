@@ -7,9 +7,6 @@ export const PostScreen = ({route, navigation}) => {
   const {itemId, item} = route.params;
   return (
     <View>
-      <Pressable style={{padding: 10}} onPress={() => navigation.goBack()}>
-        <BackArrowButton />
-      </Pressable>
       <PostCard key={itemId} item={item} />
     </View>
   );

@@ -32,9 +32,6 @@ export const UserScreen = ({navigation, route}) => {
   const filteredUser = UserData.filter(el => el.id === itemId);
   return (
     <ScrollView style={{flex: 1, marginHorizontal: 15}}>
-      <Pressable style={{padding: 10}} onPress={() => navigation.goBack()}>
-        <BackArrowButton />
-      </Pressable>
       <View
         style={{
           flexDirection: 'row',
