@@ -1,12 +1,15 @@
 import * as React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, Pressable} from 'react-native';
 import {PostCard} from '../components/PostCard';
+import {BackArrowButton} from '../assets/icons/BackArrowButton';
 
 export const PostScreen = ({route, navigation}) => {
   const {itemId, item} = route.params;
   return (
     <View>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Pressable style={{padding: 10}} onPress={() => navigation.goBack()}>
+        <BackArrowButton />
+      </Pressable>
       <PostCard key={itemId} item={item} />
     </View>
   );
