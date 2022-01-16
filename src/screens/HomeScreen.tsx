@@ -3,6 +3,7 @@ import {View, TouchableOpacity, ScrollView, Image} from 'react-native';
 import {PostIcon} from '../assets/icons/PostIcon';
 import {LogoIcon} from '../assets/icons/LogoIcon';
 import {LikeIcon} from '../assets/icons/LikeIcon';
+import {LikeActiveIcon} from '../assets/icons/LikeActiveIcon';
 import {MessengerIcon} from '../assets/icons/MessengerIcon';
 import {StyleSheet} from 'react-native';
 import {AgEnum, Text} from '../components/Text';
