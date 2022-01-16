@@ -3,15 +3,16 @@ import {
   Image,
   ScrollView,
   StyleSheet,
-  TouchableOpacity,
   View,
   TextInput,
+  TouchableOpacity,
 } from 'react-native';
 import {DataHelper} from '../helpers/DataHelper';
 import {IFiltered} from '../types/FileredSearchTypes';
 import {SearchData} from '../store/SearchData';
+import {Screens} from '../navigation/screens/Screens';
 
-export const SearchScreen = () => {
+export const SearchScreen = ({navigation}) => {
   const [searchWord, setSearchWord] = useState('');
   const [filteredArray, setFilteredArray] = useState([]);
 
@@ -47,25 +48,50 @@ export const SearchScreen = () => {
         <>
           <View style={styles.flexRow} key={item[0] ? item[0][0].id : null}>
             <View style={styles.topLeftContainer}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(Screens.POST, {
+                    itemId: item[0][0].id,
+                    item: item[0][0],
+                  })
+                }>
                 <Image
                   style={styles.smallImage}
                   source={item[0] ? item[0][0].photo : null}
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(Screens.POST, {
+                    itemId: item[1][0].id,
+                    item: item[1][0],
+                  })
+                }>
                 <Image
                   style={styles.smallImage}
                   source={item[1] ? item[1][0].photo : null}
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(Screens.POST, {
+                    itemId: item[2][0].id,
+                    item: item[2][0],
+                  })
+                }>
                 <Image
                   style={styles.smallImage}
                   source={item[2] ? item[2][0].photo : null}
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(Screens.POST, {
+                    itemId: item[3][0].id,
+                    item: item[3][0],
+                  })
+                }>
                 <Image
                   style={styles.smallImage}
                   source={item[3] ? item[3][0].photo : null}
@@ -73,7 +99,13 @@ export const SearchScreen = () => {
               </TouchableOpacity>
             </View>
             <View style={styles.topRightContainer}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(Screens.POST, {
+                    itemId: item[4][0].id,
+                    item: item[4][0],
+                  })
+                }>
                 <Image
                   style={styles.highImage}
                   source={item[4] ? item[4][0].photo : null}
@@ -82,37 +114,73 @@ export const SearchScreen = () => {
             </View>
           </View>
           <View style={styles.centerContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate(Screens.POST, {
+                  itemId: item[5][0].id,
+                  item: item[5][0],
+                })
+              }>
               <Image
                 style={styles.smallImage}
                 source={item[5] ? item[5][0].photo : null}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate(Screens.POST, {
+                  itemId: item[6][0].id,
+                  item: item[6][0],
+                })
+              }>
               <Image
                 style={styles.smallImage}
                 source={item[6] ? item[6][0].photo : null}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate(Screens.POST, {
+                  itemId: item[7][0].id,
+                  item: item[7][0],
+                })
+              }>
               <Image
                 style={styles.smallImage}
                 source={item[7] ? item[7][0].photo : null}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate(Screens.POST, {
+                  itemId: item[8][0].id,
+                  item: item[8][0],
+                })
+              }>
               <Image
                 style={styles.smallImage}
                 source={item[8] ? item[8][0].photo : null}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate(Screens.POST, {
+                  itemId: item[9][0].id,
+                  item: item[9][0],
+                })
+              }>
               <Image
                 style={styles.smallImage}
                 source={item[9] ? item[9][0].photo : null}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate(Screens.POST, {
+                  itemId: item[10][0].id,
+                  item: item[10][0],
+                })
+              }>
               <Image
                 style={styles.smallImage}
                 source={item[10] ? item[10][0].photo : null}
@@ -121,7 +189,13 @@ export const SearchScreen = () => {
 
             <View style={styles.flexRow}>
               <View style={styles.bottomLeft}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate(Screens.POST, {
+                      itemId: item[11][0].id,
+                      item: item[11][0],
+                    })
+                  }>
                   <Image
                     style={styles.bigImage}
                     source={item[11] ? item[11][0].photo : null}
@@ -129,13 +203,25 @@ export const SearchScreen = () => {
                 </TouchableOpacity>
               </View>
               <View style={styles.bottomRight}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate(Screens.POST, {
+                      itemId: item[12][0].id,
+                      item: item[12][0],
+                    })
+                  }>
                   <Image
                     style={styles.smallRightImage}
                     source={item[12] ? item[12][0].photo : null}
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate(Screens.POST, {
+                      itemId: item[13][0].id,
+                      item: item[13][0],
+                    })
+                  }>
                   <Image
                     style={styles.smallRightImage}
                     source={item[13] ? item[13][0].photo : null}
