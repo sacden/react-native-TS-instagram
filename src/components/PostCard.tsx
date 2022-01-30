@@ -14,15 +14,22 @@ import {ShareIcon} from '../assets/icons/ShareIcon';
 import {AgEnum, Text} from './Text';
 import {Screens} from '../navigation/screens/Screens';
 import {useNavigation} from '@react-navigation/native';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 export const PostCard = ({item}: any) => {
   const navigation = useNavigation();
 
   const [isLiked, setIsLiked] = useState(false);
-  const onLikedPressed = () => {
+  const [likesCount, setLikesCount] = useState(0);
+
+  const onLikePressed = () => {
+    setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
     setIsLiked(!isLiked);
   };
+
+  useEffect(() => {
+    setLikesCount(item.likes);
+  }, []);
 
   return (
     <View>
@@ -52,9 +59,9 @@ export const PostCard = ({item}: any) => {
       </View>
       <View style={styles.topContainer}>
         <View style={styles.flexRow}>
-          <TouchableOpacity onPress={() => onLikedPressed()}>
+          <TouchableOpacity onPress={() => onLikePressed()}>
             {isLiked ? (
-              <ADIcon name="heart" size={20} color={'red'} />
+              <ADIcon name="heart" size={20} color={'#db565b'} />
             ) : (
               <ADIcon name="hearto" size={20} color={'black'} />
             )}
@@ -73,7 +80,7 @@ export const PostCard = ({item}: any) => {
         </TouchableOpacity>
       </View>
       <Text Ag={AgEnum.BODYSTRONG} style={{marginLeft: 12}}>
-        {item.likes + ' '} Likes
+        {likesCount + ' '} Likes
       </Text>
       <View>
         <Text Ag={AgEnum.SUBTITLE} style={{marginLeft: 12}} numberOfLines={3}>
