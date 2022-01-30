@@ -8,15 +8,22 @@ import {
 } from 'react-native';
 import {BookmarkIcon} from '../assets/icons/BookmarkIcon';
 import {CommentIcon} from '../assets/icons/ComentIcon';
-import {LikeIcon} from '../assets/icons/LikeIcon';
+import ADIcon from 'react-native-vector-icons/AntDesign';
 import {PostIcon} from '../assets/icons/PostIcon';
 import {ShareIcon} from '../assets/icons/ShareIcon';
 import {AgEnum, Text} from './Text';
 import {Screens} from '../navigation/screens/Screens';
 import {useNavigation} from '@react-navigation/native';
+import {useState} from 'react';
 
 export const PostCard = ({item}: any) => {
   const navigation = useNavigation();
+
+  const [isLiked, setIsLiked] = useState(false);
+  const onLikedPressed = () => {
+    setIsLiked(!isLiked);
+  };
+
   return (
     <View>
       <View style={styles.topContainer}>
@@ -45,8 +52,12 @@ export const PostCard = ({item}: any) => {
       </View>
       <View style={styles.topContainer}>
         <View style={styles.flexRow}>
-          <TouchableOpacity>
-            <LikeIcon />
+          <TouchableOpacity onPress={() => onLikedPressed()}>
+            {isLiked ? (
+              <ADIcon name="heart" size={20} color={'red'} />
+            ) : (
+              <ADIcon name="hearto" size={20} color={'black'} />
+            )}
           </TouchableOpacity>
 
           <TouchableOpacity style={{marginLeft: 14}}>

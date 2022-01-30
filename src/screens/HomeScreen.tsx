@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, TouchableOpacity, ScrollView, Image} from 'react-native';
+import {View, TouchableOpacity, ScrollView, Image, Alert} from 'react-native';
 import {PostIcon} from '../assets/icons/PostIcon';
 import {LogoIcon} from '../assets/icons/LogoIcon';
 import {LikeIcon} from '../assets/icons/LikeIcon';
@@ -14,8 +14,15 @@ import {HistoryData} from '../store/HistoryData';
 import {HistoryHelper} from '../helpers/HistoryHelper';
 import {IHistory} from '../types/HistoryTypes';
 import {PostData} from '../store/PostData';
+import {useState} from 'react';
 
 export const HomeScreen = () => {
+  const [isLiked, setIsLiked] = useState(false);
+  const onLikedPressed = () => {
+    Alert.alert('Cancel Pressed');
+    console.log('like');
+    setIsLiked(!isLiked);
+  };
   return (
     <>
       <ScrollView>
